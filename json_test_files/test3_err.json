@@ -1,0 +1,6 @@
+{ 
+	"test":3.14, 
+	"tableau":
+		{"str1", {"obj1":true},{"obj2":null},2333},
+	"str2":4096
+}
