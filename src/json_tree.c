@@ -35,7 +35,7 @@ void * reallocf(void *ptr, size_t size)
 #include <string.h> /* pour strcmp() */
 #include <assert.h> /* pour assert() */
 
-#include "json_tree.h"
+#include "../include/json_tree.h"
 
 #define STRING_SIZE 128
 

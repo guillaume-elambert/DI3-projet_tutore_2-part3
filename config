@@ -1,0 +1,30 @@
+# Compiler
+CC = gcc
+FLAGS = -std=c11 -g -Wall
+CFLAGS = -D TEST
+
+# Makefile
+APPNAME = tp3_ex3-3
+EXT     = .c
+SRCDIR  = src
+OBJDIR  = obj
+INCDIR  = include
+TESTDIR = json_test_files
+
+
+FILEWITHTEST = pile.c
+
+SRC = $(wildcard $(SRCDIR)/*$(EXT))
+OBJ = $(SRC:$(SRCDIR)/%$(EXT)=$(OBJDIR)/%.o)
+
+RUN_CMD = ./$(APPNAME)
+
+
+
+# DOXYGEN
+
+DOXYGEN_PNAME   = $(APPNAME)
+DOXYGEN_CONFIG  = Doxyfile
+DOXYGEN_OUTPUT  = doc
+DOXYGEN_INPUT   = $(SRCDIR) $(INCDIR)
+DOXYGEN_PDFNAME = $(APPNAME)-documentation.pdf
