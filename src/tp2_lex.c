@@ -25,18 +25,15 @@ char *separators = "{}[],;\n \t";
  * \param[in] _symb symbole a analyser
  * \return 1 (vrai) si _symb est un separateur, 0 (faux) sinon
  */
-int isSep(const char _symb)
-{
-    int founded = 0;
 
-    for (int i = 0; !founded && separators[i] != '\0'; ++i)
-    {
-        if (separators[i] == _symb)
-        {
-            founded = 1;
-        }
-    }
-    return founded;
+
+int isSep(const char _symb) {
+
+    if (_symb == '{' || _symb == '[' || _symb == '}' || _symb == ']' || _symb == ',' || _symb == ':' || _symb == ' ' || _symb == '\t' || _symb == '\n' || _symb == '\r' )
+     {
+         return 1;
+     }
+     return 0;
 }
 
 /**
@@ -109,7 +106,7 @@ void printLexData(TLex *_lexData)
 
         case JSON_REAL_NUMBER:
             printf("\tReel\t: %f\n", _lexData->tableSymboles[i].val.reel);
-            break;
+            break;// oh bosse la paul
         }
     }
 }
@@ -278,6 +275,9 @@ int lex(TLex *_lexData)
 
             case '0':
                 state = 28;
+                break;
+
+            case '\t':
                 break;
 
             default:
@@ -598,9 +598,11 @@ int lex(TLex *_lexData)
         }
 
         //On ajoute le caractère courant à l'objet JSON
-        obj = realloc(obj, sizeof(char) * (objSize + 1));
-        obj[objSize] = current;
-        ++objSize;
+        if(state != 0){
+			obj = realloc(obj, sizeof(char) * (objSize + 1));
+			obj[objSize] = current;
+			++objSize;
+		}
 
         //On passe au caractère suivant si on est pas tombé sur un séparateur
         if (incrementStartPos)

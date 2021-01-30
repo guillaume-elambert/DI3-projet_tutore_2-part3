@@ -59,8 +59,9 @@ void printIntPile(TIntPile *_pile)
 {
 	if(_pile && _pile->indexSommet != -1){
 		for(int i = _pile->indexSommet; i >= 0;i--){
-			printf("%d\n", _pile->data[i]);
+			printf("%d ", _pile->data[i]);
 		}
+		printf("\n");
 	}
 }
 
