@@ -15,7 +15,6 @@
 #include <regex.h>
 #include "../include/tp2_lex.h"
 
-
 char *separators = "{}[],;\n \t";
 
 /**
@@ -26,14 +25,14 @@ char *separators = "{}[],;\n \t";
  * \return 1 (vrai) si _symb est un separateur, 0 (faux) sinon
  */
 
+int isSep(const char _symb)
+{
 
-int isSep(const char _symb) {
-
-    if (_symb == '{' || _symb == '[' || _symb == '}' || _symb == ']' || _symb == ',' || _symb == ':' || _symb == ' ' || _symb == '\t' || _symb == '\n' || _symb == '\r' )
-     {
-         return 1;
-     }
-     return 0;
+    if (_symb == '{' || _symb == '[' || _symb == '}' || _symb == ']' || _symb == ',' || _symb == ':' || _symb == ' ' || _symb == '\t' || _symb == '\n' || _symb == '\r')
+    {
+        return 1;
+    }
+    return 0;
 }
 
 /**
@@ -67,17 +66,20 @@ TLex *initLexData(char *_data)
  */
 void deleteLexData(TLex **_lexData)
 {
-    free((*_lexData)->data);
+    //free((*_lexData)->data);
     //free((*_lexData)->tableSymboles);
-    for (int i = 0; i < (*_lexData)->nbSymboles; ++i)
+    if ((*_lexData) && (*_lexData)->tableSymboles)
     {
-        if ((*_lexData)->tableSymboles[i].type == JSON_STRING)
+        for (int i = 0; i < (*_lexData)->nbSymboles; ++i)
         {
-            free((*_lexData)->tableSymboles[i].val.chaine);
+            if ((*_lexData)->tableSymboles[i].type == JSON_STRING)
+            {
+                free((*_lexData)->tableSymboles[i].val.chaine);
+            }
         }
+        free((*_lexData)->tableSymboles);
+        free(*_lexData); 
     }
-    free((*_lexData)->tableSymboles);
-    free(*_lexData);
 }
 
 /**
@@ -106,7 +108,7 @@ void printLexData(TLex *_lexData)
 
         case JSON_REAL_NUMBER:
             printf("\tReel\t: %f\n", _lexData->tableSymboles[i].val.reel);
-            break;// oh bosse la paul
+            break; // oh bosse la paul
         }
     }
 }
@@ -206,7 +208,6 @@ int lex(TLex *_lexData)
 
     //Taille de l'objet JSON parcouru
     int objSize = 0;
-
 
     //Parcours de la chaîne JSON tant qu'elle n'est pas vide
     //et qu'on est pas dans un état terminal
@@ -321,7 +322,7 @@ int lex(TLex *_lexData)
                 //On ne passe pas au caractère suivant car on veut pouvoir détecter si le séparateur
                 //est une parenthèse, un crochet, un point virugle,...
                 incrementStartPos = 0;
-                
+
                 state = 5;
                 ended = JSON_TRUE;
             }
@@ -382,7 +383,7 @@ int lex(TLex *_lexData)
                 //On ne passe pas au caractère suivant car on veut pouvoir détecter si le séparateur
                 //est une parenthèse, un crochet, un point virugle,...
                 incrementStartPos = 0;
-                
+
                 state = 11;
                 ended = JSON_FALSE;
             }
@@ -431,7 +432,7 @@ int lex(TLex *_lexData)
                 //On ne passe pas au caractère suivant car on veut pouvoir détecter si le séparateur
                 //est une parenthèse, un crochet, un point virugle,...
                 incrementStartPos = 0;
-                
+
                 state = 16;
                 ended = JSON_NULL;
             }
@@ -479,7 +480,7 @@ int lex(TLex *_lexData)
                 //On ne passe pas au caractère suivant car on veut pouvoir détecter si le séparateur
                 //est une parenthèse, un crochet, un point virugle,...
                 incrementStartPos = 0;
-                
+
                 state = 31;
                 ended = JSON_INT_NUMBER;
             }
@@ -503,7 +504,7 @@ int lex(TLex *_lexData)
                 //On ne passe pas au caractère suivant car on veut pouvoir détecter si le séparateur
                 //est une parenthèse, un crochet, un point virugle,...
                 incrementStartPos = 0;
-                
+
                 state = 31;
                 ended = JSON_INT_NUMBER;
             }
@@ -565,7 +566,7 @@ int lex(TLex *_lexData)
                 //On ne passe pas au caractère suivant car on veut pouvoir détecter si le séparateur
                 //est une parenthèse, un crochet, un point virugle,...
                 incrementStartPos = 0;
-                
+
                 state = 34;
                 ended = JSON_REAL_NUMBER;
             }
@@ -585,7 +586,7 @@ int lex(TLex *_lexData)
                 //On ne passe pas au caractère suivant car on veut pouvoir détecter si le séparateur
                 //est une parenthèse, un crochet, un point virugle,...
                 incrementStartPos = 0;
-                
+
                 state = 36;
                 ended = JSON_REAL_NUMBER;
             }
@@ -598,11 +599,12 @@ int lex(TLex *_lexData)
         }
 
         //On ajoute le caractère courant à l'objet JSON
-        if(state != 0){
-			obj = realloc(obj, sizeof(char) * (objSize + 1));
-			obj[objSize] = current;
-			++objSize;
-		}
+        if (state != 0)
+        {
+            obj = realloc(obj, sizeof(char) * (objSize + 1));
+            obj[objSize] = current;
+            ++objSize;
+        }
 
         //On passe au caractère suivant si on est pas tombé sur un séparateur
         if (incrementStartPos)

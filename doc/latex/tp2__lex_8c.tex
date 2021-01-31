@@ -1,0 +1,210 @@
+\hypertarget{tp2__lex_8c}{}\section{src/tp2\+\_\+lex.c File Reference}
+\label{tp2__lex_8c}\index{src/tp2\+\_\+lex.\+c@{src/tp2\+\_\+lex.\+c}}
+
+
+analyseur lexical pour le langage J\+S\+ON  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$regex.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}../include/tp2\+\_\+lex.\+h\char`\"{}}\newline
+Include dependency graph for tp2\+\_\+lex.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tp2__lex_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{tp2__lex_8c_a9869519009e3b965c6401e67261f6c43}{is\+Sep} (const char \+\_\+symb)
+\begin{DoxyCompactList}\small\item\em fonction qui teste si un symbole fait partie des separateurs \end{DoxyCompactList}\item 
+\hyperlink{structTLex}{T\+Lex} $\ast$ \hyperlink{tp2__lex_8c_ac829e0ab2aa3b0d2e165edefa6be8009}{init\+Lex\+Data} (char $\ast$\+\_\+data)
+\begin{DoxyCompactList}\small\item\em fonction qui reserve la memoire et initialise les donnees pour l\textquotesingle{}analyseur lexical \end{DoxyCompactList}\item 
+void \hyperlink{tp2__lex_8c_a66ac3a0b39b824a8e72654633945a95f}{delete\+Lex\+Data} (\hyperlink{structTLex}{T\+Lex} $\ast$$\ast$\+\_\+lex\+Data)
+\begin{DoxyCompactList}\small\item\em fonction qui supprime de la memoire les donnees pour l\textquotesingle{}analyseur lexical \end{DoxyCompactList}\item 
+void \hyperlink{tp2__lex_8c_a5cad73df0d00e5735e16356504a923b1}{print\+Lex\+Data} (\hyperlink{structTLex}{T\+Lex} $\ast$\+\_\+lex\+Data)
+\begin{DoxyCompactList}\small\item\em fonction qui affiche les donnees pour l\textquotesingle{}analyseur lexical \end{DoxyCompactList}\item 
+int \hyperlink{tp2__lex_8c_afed09d4c5ae5433e332256c311411bb6}{change\+Table\+Symbole\+Size} (\hyperlink{structTLex}{T\+Lex} $\ast$\+\_\+lex\+Data)
+\begin{DoxyCompactList}\small\item\em Fonction qui incrémente le nombre de symbole de la table des symbole et augmente sa taille. \end{DoxyCompactList}\item 
+void \hyperlink{tp2__lex_8c_a769d490ddf9b2cae334051946a61573b}{add\+Int\+Symbol\+To\+Lex\+Data} (\hyperlink{structTLex}{T\+Lex} $\ast$\+\_\+lex\+Data, const int \+\_\+val)
+\begin{DoxyCompactList}\small\item\em fonction qui ajoute un symbole entier a la table des symboles \end{DoxyCompactList}\item 
+void \hyperlink{tp2__lex_8c_a42504307caaa42184de9dd79b180b946}{add\+Real\+Symbol\+To\+Lex\+Data} (\hyperlink{structTLex}{T\+Lex} $\ast$\+\_\+lex\+Data, const float \+\_\+val)
+\begin{DoxyCompactList}\small\item\em fonction qui ajoute un symbole reel a la table des symboles \end{DoxyCompactList}\item 
+void \hyperlink{tp2__lex_8c_acc16ce9abf0d176fbe754943171f5c4e}{add\+String\+Symbol\+To\+Lex\+Data} (\hyperlink{structTLex}{T\+Lex} $\ast$\+\_\+lex\+Data, char $\ast$\+\_\+val)
+\begin{DoxyCompactList}\small\item\em fonction qui ajoute une chaine de caracteres a la table des symboles \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{tp2__lex_8c_a4f39d3deacca77d7b4cf543101da84a6}\label{tp2__lex_8c_a4f39d3deacca77d7b4cf543101da84a6}} 
+int {\bfseries lex} (\hyperlink{structTLex}{T\+Lex} $\ast$\+\_\+lex\+Data)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{tp2__lex_8c_a55d5c377110e89859a38a0498cc294ef}\label{tp2__lex_8c_a55d5c377110e89859a38a0498cc294ef}} 
+char $\ast$ {\bfseries separators} = \char`\"{}\{\}\mbox{[}$\,$\mbox{]},;\textbackslash{}n \textbackslash{}t\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+analyseur lexical pour le langage J\+S\+ON 
+
+\begin{DoxyAuthor}{Author}
+NM 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+25/11/2015 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{tp2__lex_8c_a769d490ddf9b2cae334051946a61573b}\label{tp2__lex_8c_a769d490ddf9b2cae334051946a61573b}} 
+\index{tp2\+\_\+lex.\+c@{tp2\+\_\+lex.\+c}!add\+Int\+Symbol\+To\+Lex\+Data@{add\+Int\+Symbol\+To\+Lex\+Data}}
+\index{add\+Int\+Symbol\+To\+Lex\+Data@{add\+Int\+Symbol\+To\+Lex\+Data}!tp2\+\_\+lex.\+c@{tp2\+\_\+lex.\+c}}
+\subsubsection{\texorpdfstring{add\+Int\+Symbol\+To\+Lex\+Data()}{addIntSymbolToLexData()}}
+{\footnotesize\ttfamily void add\+Int\+Symbol\+To\+Lex\+Data (\begin{DoxyParamCaption}\item[{\hyperlink{structTLex}{T\+Lex} $\ast$}]{\+\_\+lex\+Data,  }\item[{const int}]{\+\_\+val }\end{DoxyParamCaption})}
+
+
+
+fonction qui ajoute un symbole entier a la table des symboles 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em \+\_\+lex\+Data} & donnees de l\textquotesingle{}analyseur lexical \\
+\hline
+\mbox{\tt in}  & {\em \+\_\+val} & valeur entiere e ajouter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+neant 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tp2__lex_8c_a42504307caaa42184de9dd79b180b946}\label{tp2__lex_8c_a42504307caaa42184de9dd79b180b946}} 
+\index{tp2\+\_\+lex.\+c@{tp2\+\_\+lex.\+c}!add\+Real\+Symbol\+To\+Lex\+Data@{add\+Real\+Symbol\+To\+Lex\+Data}}
+\index{add\+Real\+Symbol\+To\+Lex\+Data@{add\+Real\+Symbol\+To\+Lex\+Data}!tp2\+\_\+lex.\+c@{tp2\+\_\+lex.\+c}}
+\subsubsection{\texorpdfstring{add\+Real\+Symbol\+To\+Lex\+Data()}{addRealSymbolToLexData()}}
+{\footnotesize\ttfamily void add\+Real\+Symbol\+To\+Lex\+Data (\begin{DoxyParamCaption}\item[{\hyperlink{structTLex}{T\+Lex} $\ast$}]{\+\_\+lex\+Data,  }\item[{const float}]{\+\_\+val }\end{DoxyParamCaption})}
+
+
+
+fonction qui ajoute un symbole reel a la table des symboles 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em \+\_\+lex\+Data} & donnees de l\textquotesingle{}analyseur lexical \\
+\hline
+\mbox{\tt in}  & {\em \+\_\+val} & valeur reelle a ajouter \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{tp2__lex_8c_acc16ce9abf0d176fbe754943171f5c4e}\label{tp2__lex_8c_acc16ce9abf0d176fbe754943171f5c4e}} 
+\index{tp2\+\_\+lex.\+c@{tp2\+\_\+lex.\+c}!add\+String\+Symbol\+To\+Lex\+Data@{add\+String\+Symbol\+To\+Lex\+Data}}
+\index{add\+String\+Symbol\+To\+Lex\+Data@{add\+String\+Symbol\+To\+Lex\+Data}!tp2\+\_\+lex.\+c@{tp2\+\_\+lex.\+c}}
+\subsubsection{\texorpdfstring{add\+String\+Symbol\+To\+Lex\+Data()}{addStringSymbolToLexData()}}
+{\footnotesize\ttfamily void add\+String\+Symbol\+To\+Lex\+Data (\begin{DoxyParamCaption}\item[{\hyperlink{structTLex}{T\+Lex} $\ast$}]{\+\_\+lex\+Data,  }\item[{char $\ast$}]{\+\_\+val }\end{DoxyParamCaption})}
+
+
+
+fonction qui ajoute une chaine de caracteres a la table des symboles 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em \+\_\+lex\+Data} & donnees de l\textquotesingle{}analyseur lexical \\
+\hline
+\mbox{\tt in}  & {\em \+\_\+val} & chaine a ajouter \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{tp2__lex_8c_afed09d4c5ae5433e332256c311411bb6}\label{tp2__lex_8c_afed09d4c5ae5433e332256c311411bb6}} 
+\index{tp2\+\_\+lex.\+c@{tp2\+\_\+lex.\+c}!change\+Table\+Symbole\+Size@{change\+Table\+Symbole\+Size}}
+\index{change\+Table\+Symbole\+Size@{change\+Table\+Symbole\+Size}!tp2\+\_\+lex.\+c@{tp2\+\_\+lex.\+c}}
+\subsubsection{\texorpdfstring{change\+Table\+Symbole\+Size()}{changeTableSymboleSize()}}
+{\footnotesize\ttfamily int change\+Table\+Symbole\+Size (\begin{DoxyParamCaption}\item[{\hyperlink{structTLex}{T\+Lex} $\ast$}]{\+\_\+lex\+Data }\end{DoxyParamCaption})}
+
+
+
+Fonction qui incrémente le nombre de symbole de la table des symbole et augmente sa taille. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em \+\_\+lex\+Data} & donnees de l\textquotesingle{}analyseur lexical \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+reallocation reussie 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tp2__lex_8c_a66ac3a0b39b824a8e72654633945a95f}\label{tp2__lex_8c_a66ac3a0b39b824a8e72654633945a95f}} 
+\index{tp2\+\_\+lex.\+c@{tp2\+\_\+lex.\+c}!delete\+Lex\+Data@{delete\+Lex\+Data}}
+\index{delete\+Lex\+Data@{delete\+Lex\+Data}!tp2\+\_\+lex.\+c@{tp2\+\_\+lex.\+c}}
+\subsubsection{\texorpdfstring{delete\+Lex\+Data()}{deleteLexData()}}
+{\footnotesize\ttfamily void delete\+Lex\+Data (\begin{DoxyParamCaption}\item[{\hyperlink{structTLex}{T\+Lex} $\ast$$\ast$}]{\+\_\+lex\+Data }\end{DoxyParamCaption})}
+
+
+
+fonction qui supprime de la memoire les donnees pour l\textquotesingle{}analyseur lexical 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em \+\_\+lex\+Data} & donnees de l\textquotesingle{}analyseur lexical \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+neant 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tp2__lex_8c_ac829e0ab2aa3b0d2e165edefa6be8009}\label{tp2__lex_8c_ac829e0ab2aa3b0d2e165edefa6be8009}} 
+\index{tp2\+\_\+lex.\+c@{tp2\+\_\+lex.\+c}!init\+Lex\+Data@{init\+Lex\+Data}}
+\index{init\+Lex\+Data@{init\+Lex\+Data}!tp2\+\_\+lex.\+c@{tp2\+\_\+lex.\+c}}
+\subsubsection{\texorpdfstring{init\+Lex\+Data()}{initLexData()}}
+{\footnotesize\ttfamily \hyperlink{structTLex}{T\+Lex} $\ast$ init\+Lex\+Data (\begin{DoxyParamCaption}\item[{char $\ast$}]{\+\_\+data }\end{DoxyParamCaption})}
+
+
+
+fonction qui reserve la memoire et initialise les donnees pour l\textquotesingle{}analyseur lexical 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em \+\_\+data} & chaine a analyser \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointeur sur la structure de donnees creee 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tp2__lex_8c_a9869519009e3b965c6401e67261f6c43}\label{tp2__lex_8c_a9869519009e3b965c6401e67261f6c43}} 
+\index{tp2\+\_\+lex.\+c@{tp2\+\_\+lex.\+c}!is\+Sep@{is\+Sep}}
+\index{is\+Sep@{is\+Sep}!tp2\+\_\+lex.\+c@{tp2\+\_\+lex.\+c}}
+\subsubsection{\texorpdfstring{is\+Sep()}{isSep()}}
+{\footnotesize\ttfamily int is\+Sep (\begin{DoxyParamCaption}\item[{const char}]{\+\_\+symb }\end{DoxyParamCaption})}
+
+
+
+fonction qui teste si un symbole fait partie des separateurs 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em \+\_\+symb} & symbole a analyser \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 (vrai) si \+\_\+symb est un separateur, 0 (faux) sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tp2__lex_8c_a5cad73df0d00e5735e16356504a923b1}\label{tp2__lex_8c_a5cad73df0d00e5735e16356504a923b1}} 
+\index{tp2\+\_\+lex.\+c@{tp2\+\_\+lex.\+c}!print\+Lex\+Data@{print\+Lex\+Data}}
+\index{print\+Lex\+Data@{print\+Lex\+Data}!tp2\+\_\+lex.\+c@{tp2\+\_\+lex.\+c}}
+\subsubsection{\texorpdfstring{print\+Lex\+Data()}{printLexData()}}
+{\footnotesize\ttfamily void print\+Lex\+Data (\begin{DoxyParamCaption}\item[{\hyperlink{structTLex}{T\+Lex} $\ast$}]{\+\_\+lex\+Data }\end{DoxyParamCaption})}
+
+
+
+fonction qui affiche les donnees pour l\textquotesingle{}analyseur lexical 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em \+\_\+lex\+Data} & données de l\textquotesingle{}analyseur lexical \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+neant 
+\end{DoxyReturn}

@@ -1,0 +1,263 @@
+\hypertarget{pile_8c}{}\section{src/pile.c File Reference}
+\label{pile_8c}\index{src/pile.\+c@{src/pile.\+c}}
+
+
+gestion d\textquotesingle{}une pile  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}../include/pile.\+h\char`\"{}}\newline
+Include dependency graph for pile.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pile_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{pile_8c_a668c3ac647c6201186c60203494e5ddf}{\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+P\+I\+L\+E\+\_\+\+S\+I\+ZE}~15
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{pile_8c_a401766bcab875227f3fe0b4a2c314d9b}\label{pile_8c_a401766bcab875227f3fe0b4a2c314d9b}} 
+\hyperlink{structTIntPile}{T\+Int\+Pile} $\ast$ {\bfseries init\+Int\+Pile} ()
+\item 
+void \hyperlink{pile_8c_a4d8c955ed39c0e02ff16c2583240b4c3}{delete\+Int\+Pile} (\hyperlink{structTIntPile}{T\+Int\+Pile} $\ast$$\ast$\+\_\+pile)
+\begin{DoxyCompactList}\small\item\em efface la memoire occupe par la pile \end{DoxyCompactList}\item 
+void \hyperlink{pile_8c_a525764cab275369f56d230e3a911cfb6}{print\+Int\+Pile} (\hyperlink{structTIntPile}{T\+Int\+Pile} $\ast$\+\_\+pile)
+\begin{DoxyCompactList}\small\item\em affichage du contenu d\textquotesingle{}une pile \end{DoxyCompactList}\item 
+void \hyperlink{pile_8c_aca7a8bc8998e15add0598f09a65afa97}{empiler\+Int} (\hyperlink{structTIntPile}{T\+Int\+Pile} $\ast$\+\_\+pile, int \+\_\+val)
+\begin{DoxyCompactList}\small\item\em empiler un entier sur la pile, si la zone memoire reservee n\textquotesingle{}est pas suffisante, celle-\/ci est etendue \end{DoxyCompactList}\item 
+int \hyperlink{pile_8c_a823ba490199cf04477b74b070e22f3be}{depiler\+Int} (\hyperlink{structTIntPile}{T\+Int\+Pile} $\ast$\+\_\+pile)
+\begin{DoxyCompactList}\small\item\em dépiler un entier \end{DoxyCompactList}\item 
+int \hyperlink{pile_8c_a8f2c03c053b2b6b9540eeeff20baa086}{sommet\+Int} (\hyperlink{structTIntPile}{T\+Int\+Pile} $\ast$\+\_\+pile)
+\begin{DoxyCompactList}\small\item\em renvoie la valeur du sommet (sans depiler) \end{DoxyCompactList}\item 
+\hyperlink{structTVoidPile}{T\+Void\+Pile} $\ast$ \hyperlink{pile_8c_a5e8008644ed4ab4223437e2bc12b8f44}{init\+Void\+Pile} ()
+\begin{DoxyCompactList}\small\item\em fonction qui initialise une pile de pointeur void $\ast$ \end{DoxyCompactList}\item 
+void \hyperlink{pile_8c_a1471f95a65ffd6cc6f3ddeccde2ab327}{delete\+Void\+Pile} (\hyperlink{structTVoidPile}{T\+Void\+Pile} $\ast$$\ast$\+\_\+pile)
+\begin{DoxyCompactList}\small\item\em libere la memoire occupee par la pile \end{DoxyCompactList}\item 
+void \hyperlink{pile_8c_aa2185907bdfe2791481e174384c41253}{print\+Void\+Pile} (\hyperlink{structTVoidPile}{T\+Void\+Pile} $\ast$\+\_\+pile)
+\begin{DoxyCompactList}\small\item\em affichage de la pile (comme on ne connait pas les type des elements empiles, on affiche les adresses de tous les pointeurs empiles) \end{DoxyCompactList}\item 
+void \hyperlink{pile_8c_ade2214f96e200aafa5ef341103943de6}{empiler\+Void} (\hyperlink{structTVoidPile}{T\+Void\+Pile} $\ast$\+\_\+pile, void $\ast$\+\_\+val)
+\begin{DoxyCompactList}\small\item\em empile un void $\ast$ \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{pile_8c_a6581874a25b111d66cc4b3743ef29b58}{depiler\+Void} (\hyperlink{structTVoidPile}{T\+Void\+Pile} $\ast$\+\_\+pile)
+\begin{DoxyCompactList}\small\item\em dépiler un élément de type void $\ast$ \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{pile_8c_affeb266370723f8b2061f34e8650c95e}{sommet\+Void} (\hyperlink{structTVoidPile}{T\+Void\+Pile} $\ast$\+\_\+pile)
+\begin{DoxyCompactList}\small\item\em obtenir la valeur du sommet de type void $\ast$ \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+gestion d\textquotesingle{}une pile 
+
+\begin{DoxyAuthor}{Author}
+NM 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+11/12/2015 
+\end{DoxyDate}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{pile_8c_a668c3ac647c6201186c60203494e5ddf}\label{pile_8c_a668c3ac647c6201186c60203494e5ddf}} 
+\index{pile.\+c@{pile.\+c}!\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+P\+I\+L\+E\+\_\+\+S\+I\+ZE@{\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+P\+I\+L\+E\+\_\+\+S\+I\+ZE}}
+\index{\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+P\+I\+L\+E\+\_\+\+S\+I\+ZE@{\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+P\+I\+L\+E\+\_\+\+S\+I\+ZE}!pile.\+c@{pile.\+c}}
+\subsubsection{\texorpdfstring{\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+P\+I\+L\+E\+\_\+\+S\+I\+ZE}{\_DEFAULT\_PILE\_SIZE}}
+{\footnotesize\ttfamily \#define \+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+P\+I\+L\+E\+\_\+\+S\+I\+ZE~15}
+
+constante pour la taille par defaut d\textquotesingle{}une pile (utilise pour la reservation memoire) 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{pile_8c_a4d8c955ed39c0e02ff16c2583240b4c3}\label{pile_8c_a4d8c955ed39c0e02ff16c2583240b4c3}} 
+\index{pile.\+c@{pile.\+c}!delete\+Int\+Pile@{delete\+Int\+Pile}}
+\index{delete\+Int\+Pile@{delete\+Int\+Pile}!pile.\+c@{pile.\+c}}
+\subsubsection{\texorpdfstring{delete\+Int\+Pile()}{deleteIntPile()}}
+{\footnotesize\ttfamily void delete\+Int\+Pile (\begin{DoxyParamCaption}\item[{\hyperlink{structTIntPile}{T\+Int\+Pile} $\ast$$\ast$}]{\+\_\+pile }\end{DoxyParamCaption})}
+
+
+
+efface la memoire occupe par la pile 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{pile_8c_a1471f95a65ffd6cc6f3ddeccde2ab327}\label{pile_8c_a1471f95a65ffd6cc6f3ddeccde2ab327}} 
+\index{pile.\+c@{pile.\+c}!delete\+Void\+Pile@{delete\+Void\+Pile}}
+\index{delete\+Void\+Pile@{delete\+Void\+Pile}!pile.\+c@{pile.\+c}}
+\subsubsection{\texorpdfstring{delete\+Void\+Pile()}{deleteVoidPile()}}
+{\footnotesize\ttfamily void delete\+Void\+Pile (\begin{DoxyParamCaption}\item[{\hyperlink{structTVoidPile}{T\+Void\+Pile} $\ast$$\ast$}]{\+\_\+pile }\end{DoxyParamCaption})}
+
+
+
+libere la memoire occupee par la pile 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em \+\_\+pile} & \+: adresse du pointeur sur la pile a liberer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+neant 
+\end{DoxyReturn}
+\mbox{\Hypertarget{pile_8c_a823ba490199cf04477b74b070e22f3be}\label{pile_8c_a823ba490199cf04477b74b070e22f3be}} 
+\index{pile.\+c@{pile.\+c}!depiler\+Int@{depiler\+Int}}
+\index{depiler\+Int@{depiler\+Int}!pile.\+c@{pile.\+c}}
+\subsubsection{\texorpdfstring{depiler\+Int()}{depilerInt()}}
+{\footnotesize\ttfamily int depiler\+Int (\begin{DoxyParamCaption}\item[{\hyperlink{structTIntPile}{T\+Int\+Pile} $\ast$}]{\+\_\+pile }\end{DoxyParamCaption})}
+
+
+
+dépiler un entier 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em \+\_\+pile} & \+: la pile a depiler \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+l\textquotesingle{}entier en sommet de pile (0 si la pile est vide) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{pile_8c_a6581874a25b111d66cc4b3743ef29b58}\label{pile_8c_a6581874a25b111d66cc4b3743ef29b58}} 
+\index{pile.\+c@{pile.\+c}!depiler\+Void@{depiler\+Void}}
+\index{depiler\+Void@{depiler\+Void}!pile.\+c@{pile.\+c}}
+\subsubsection{\texorpdfstring{depiler\+Void()}{depilerVoid()}}
+{\footnotesize\ttfamily void $\ast$ depiler\+Void (\begin{DoxyParamCaption}\item[{\hyperlink{structTVoidPile}{T\+Void\+Pile} $\ast$}]{\+\_\+pile }\end{DoxyParamCaption})}
+
+
+
+dépiler un élément de type void $\ast$ 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em \+\_\+pile} & \+: pile a utiliser \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointeur sur void (0 si la pile est vide) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{pile_8c_aca7a8bc8998e15add0598f09a65afa97}\label{pile_8c_aca7a8bc8998e15add0598f09a65afa97}} 
+\index{pile.\+c@{pile.\+c}!empiler\+Int@{empiler\+Int}}
+\index{empiler\+Int@{empiler\+Int}!pile.\+c@{pile.\+c}}
+\subsubsection{\texorpdfstring{empiler\+Int()}{empilerInt()}}
+{\footnotesize\ttfamily void empiler\+Int (\begin{DoxyParamCaption}\item[{\hyperlink{structTIntPile}{T\+Int\+Pile} $\ast$}]{\+\_\+pile,  }\item[{int}]{\+\_\+val }\end{DoxyParamCaption})}
+
+
+
+empiler un entier sur la pile, si la zone memoire reservee n\textquotesingle{}est pas suffisante, celle-\/ci est etendue 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{pile_8c_ade2214f96e200aafa5ef341103943de6}\label{pile_8c_ade2214f96e200aafa5ef341103943de6}} 
+\index{pile.\+c@{pile.\+c}!empiler\+Void@{empiler\+Void}}
+\index{empiler\+Void@{empiler\+Void}!pile.\+c@{pile.\+c}}
+\subsubsection{\texorpdfstring{empiler\+Void()}{empilerVoid()}}
+{\footnotesize\ttfamily void empiler\+Void (\begin{DoxyParamCaption}\item[{\hyperlink{structTVoidPile}{T\+Void\+Pile} $\ast$}]{\+\_\+pile,  }\item[{void $\ast$}]{\+\_\+val }\end{DoxyParamCaption})}
+
+
+
+empile un void $\ast$ 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{pile_8c_a5e8008644ed4ab4223437e2bc12b8f44}\label{pile_8c_a5e8008644ed4ab4223437e2bc12b8f44}} 
+\index{pile.\+c@{pile.\+c}!init\+Void\+Pile@{init\+Void\+Pile}}
+\index{init\+Void\+Pile@{init\+Void\+Pile}!pile.\+c@{pile.\+c}}
+\subsubsection{\texorpdfstring{init\+Void\+Pile()}{initVoidPile()}}
+{\footnotesize\ttfamily \hyperlink{structTVoidPile}{T\+Void\+Pile} $\ast$ init\+Void\+Pile (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+fonction qui initialise une pile de pointeur void $\ast$ 
+
+pile de void $\ast$ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/------
+
+\begin{DoxyReturn}{Returns}
+pointeur sur une pile \hyperlink{structTVoidPile}{T\+Void\+Pile} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{pile_8c_a525764cab275369f56d230e3a911cfb6}\label{pile_8c_a525764cab275369f56d230e3a911cfb6}} 
+\index{pile.\+c@{pile.\+c}!print\+Int\+Pile@{print\+Int\+Pile}}
+\index{print\+Int\+Pile@{print\+Int\+Pile}!pile.\+c@{pile.\+c}}
+\subsubsection{\texorpdfstring{print\+Int\+Pile()}{printIntPile()}}
+{\footnotesize\ttfamily void print\+Int\+Pile (\begin{DoxyParamCaption}\item[{\hyperlink{structTIntPile}{T\+Int\+Pile} $\ast$}]{\+\_\+pile }\end{DoxyParamCaption})}
+
+
+
+affichage du contenu d\textquotesingle{}une pile 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em \+\_\+pile} & \+: la pile a afficher \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+neant 
+\end{DoxyReturn}
+\mbox{\Hypertarget{pile_8c_aa2185907bdfe2791481e174384c41253}\label{pile_8c_aa2185907bdfe2791481e174384c41253}} 
+\index{pile.\+c@{pile.\+c}!print\+Void\+Pile@{print\+Void\+Pile}}
+\index{print\+Void\+Pile@{print\+Void\+Pile}!pile.\+c@{pile.\+c}}
+\subsubsection{\texorpdfstring{print\+Void\+Pile()}{printVoidPile()}}
+{\footnotesize\ttfamily void print\+Void\+Pile (\begin{DoxyParamCaption}\item[{\hyperlink{structTVoidPile}{T\+Void\+Pile} $\ast$}]{\+\_\+pile }\end{DoxyParamCaption})}
+
+
+
+affichage de la pile (comme on ne connait pas les type des elements empiles, on affiche les adresses de tous les pointeurs empiles) 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em \+\_\+pile} & \+: pile a afficher \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+neant 
+\end{DoxyReturn}
+\mbox{\Hypertarget{pile_8c_a8f2c03c053b2b6b9540eeeff20baa086}\label{pile_8c_a8f2c03c053b2b6b9540eeeff20baa086}} 
+\index{pile.\+c@{pile.\+c}!sommet\+Int@{sommet\+Int}}
+\index{sommet\+Int@{sommet\+Int}!pile.\+c@{pile.\+c}}
+\subsubsection{\texorpdfstring{sommet\+Int()}{sommetInt()}}
+{\footnotesize\ttfamily int sommet\+Int (\begin{DoxyParamCaption}\item[{\hyperlink{structTIntPile}{T\+Int\+Pile} $\ast$}]{\+\_\+pile }\end{DoxyParamCaption})}
+
+
+
+renvoie la valeur du sommet (sans depiler) 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em \+\_\+pile} & \+: la pile a utiliser \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+l\textquotesingle{}entier en sommet de pile (0 si la pile est vide) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{pile_8c_affeb266370723f8b2061f34e8650c95e}\label{pile_8c_affeb266370723f8b2061f34e8650c95e}} 
+\index{pile.\+c@{pile.\+c}!sommet\+Void@{sommet\+Void}}
+\index{sommet\+Void@{sommet\+Void}!pile.\+c@{pile.\+c}}
+\subsubsection{\texorpdfstring{sommet\+Void()}{sommetVoid()}}
+{\footnotesize\ttfamily void $\ast$ sommet\+Void (\begin{DoxyParamCaption}\item[{\hyperlink{structTVoidPile}{T\+Void\+Pile} $\ast$}]{\+\_\+pile }\end{DoxyParamCaption})}
+
+
+
+obtenir la valeur du sommet de type void $\ast$ 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em \+\_\+pile} & \+: pile a utiliser pour lire le sommet \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+la valeur void $\ast$ du sommet (0 si la pile est vide) 
+\end{DoxyReturn}

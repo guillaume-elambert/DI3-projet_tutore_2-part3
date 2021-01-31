@@ -1,0 +1,6 @@
+<map id="JsonValue" name="JsonValue">
+<area shape="rect" id="node2" href="$struct__json__array.html" title="_json_array" alt="" coords="34,95,123,121"/>
+<area shape="rect" id="node3" href="$structJsonValueContainer.html" title="pour stocker &quot;value&quot; et son type " alt="" coords="5,5,144,32"/>
+<area shape="rect" id="node4" href="$struct__json__object.html" title="_json_object" alt="" coords="154,95,249,121"/>
+<area shape="rect" id="node5" href="$structJsonPair.html" title="pour stocker une &quot;pair&quot; string : value " alt="" coords="169,5,242,32"/>
+</map>

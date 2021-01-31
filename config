@@ -20,7 +20,6 @@ OBJ = $(SRC:$(SRCDIR)/%$(EXT)=$(OBJDIR)/%.o)
 RUN_CMD = ./$(APPNAME)
 
 
-
 # DOXYGEN
 
 DOXYGEN_PNAME   = $(APPNAME)

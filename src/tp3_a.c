@@ -6,6 +6,13 @@
 #include "../include/tp2_lex.h"
 #include "../include/tp3_a.h"
 
+/**
+ * \fn int traduction(int _lex)
+ * \brief fonction qui traduit l'element en sortie de l'analyse lexicale en élément pour l'analyse syntaxique 
+ *
+ * \param[inout] _lex un entier caca 
+ * \return une valeur entre 0 et 11 qui represente chacun un symbole, un ou des caratère, un nombre ou une erreur
+ */
 
 int traduction(int _lex){
 	int JSON_T;
@@ -53,7 +60,13 @@ int traduction(int _lex){
 	return JSON_T;
 }
 
-
+/**
+ * \fn int analyseurLR(TLex * _Data)
+ * \brief fonction qui effectue l'analyse syntaxique
+ *
+ * \param[inout] _Data donnees de suivi de l'analyse syntaxique
+ * \return 1 pour une erreur dans l'analyse et 0 si il n'y a eu aucune erreur
+ */
 
 int analyseurLR(TLex *_data)
 {
@@ -68,27 +81,26 @@ int analyseurLR(TLex *_data)
     int lexeme = traduction(lex(_data));
 
     /* boucle générale */
-    int fini = 0;
-    while (!fini)
+    int fini = -1;
+    while (fini==-1)
     {   
         //on Affiche la pile (pour suivre l'avancement)
-        printf("pile :");
-        printIntPile(pileInt);
+        //printf("pile :");
+        //printIntPile(pileInt);
 
         //on regarde dans la table des actions, l'action à effectuer
         int action = tableAction[sommetInt(pileInt)][lexeme];
 
 
         //on Affiche successivement le sommet de la pile, le lexeme et l'action qui en découle
-        printf("sommet : %d\n",sommetInt(pileInt));
-        printf("lexeme : %d\n",lexeme);
-        printf("action : %d\n",action);
+        //printf("sommet : %d\n",sommetInt(pileInt));
+        //printf("lexeme : %d\n",lexeme);
+        //printf("action : %d\n",action);
         
 
         if (action == LR_A)
         {
-            fini = 1;
-            return 0;
+            fini = 0;
         }
         else if (action == LR_D)
         {
@@ -97,15 +109,15 @@ int analyseurLR(TLex *_data)
         }
         else if (action == LR_E)
         {
-            printf("pouloulou une erreur attention");
-            return 1;
+            printf("Erreur de syntaxe...");
+            fini = 1;
         }
         else
         { /*c'est une réduction, la table donne le numéro de la règle : n
             on depile autant d'états que d'éléments
             en partie droite de la règle */
             int i = 0;
-	        printf("taille partie droite :%d\n",taillePartieDroiteRegle[tableAnalyse[sommetInt(pileInt)][lexeme]]);
+	        //printf("taille partie droite :%d\n",taillePartieDroiteRegle[tableAnalyse[sommetInt(pileInt)][lexeme]]);
 
             //on donne une valeur à X, qui dépend de la règle utilisé 
             n = tableAnalyse[sommetInt(pileInt)][lexeme];
@@ -121,74 +133,11 @@ int analyseurLR(TLex *_data)
             //puis on empile le nouvel état 
             empilerInt(pileInt, tableAnalyse[sommetInt(pileInt)][X]); 
         }
-    }
-
-
-
-
-
-
-
-
-
-
-
     
-    /*else if (n == 4)
-    { /* M -> P , M */
-        /*O = dépiler de la PileJSon
-            P = dépiler de la PileJSon
-            Insérer la paire P dans l'objet O
-            Empiler O sur PileJSon*/
-    /*}
-    else if (n == 5)
-    { /* règle P -> s : V */
-        /*Créer une paire P
-            C = dépiler le conteneur de Valeur de la PileJSon
-            s = dernier symbole lu par l'analyseur lexical (chaîne dans la
-            table des symboles)
-            insérer s et C dans P
-            empiler P sur PileJSon
-            effacer s de la table des symboles*/
-    /*}
-    else if (n == 6)
-    {
     }
-    else if (n == 7)
-    {
-    }
-    else if (n == 8)
-    {
-    }
-    else if (n == 9)
-    {
-    }
-    else if (n == 10)
-    {
-    }
-    else if (n == 11)
-    {
-    }
-    else if (n == 12)
-    {
-    }
-    else if (n == 13)
-    {
-    }
-    else if (n == 14)
-    {
-    }
-    else if (n == 15)
-    {
-    }
-    else if (n == 16)
-    {
-    }*/
-    /*
-
-    /*
-* continuer ainsi pour toutes les règles 6...16
-*/
+    deleteIntPile(&pileInt);
+    
+    return fini;
 }
 
 int main(int argc, char *argv[]){
@@ -211,13 +160,14 @@ int main(int argc, char *argv[]){
 		return 1;
 	}
 
-	// Parcours le fichier pour en récupérer la chaîne
+	// Parcours le fichier
 	FILE *file = fopen(filename, "r");
 	if (!file){
 		fprintf(stderr, "Erreur d'ouverture du fichier. '%s'\n", filename);
+        //fclose(file);
 		return 1;
 	}
-	char *json = malloc(file_len); // Chaîne du contenu du fichier JSON
+	char *json = malloc(file_len+1);
 	char c;
 	size_t i = 0;
 	while ((c = fgetc(file)) != EOF){
@@ -225,12 +175,16 @@ int main(int argc, char *argv[]){
 		i++;
 	}
 
-	json[i] = '\0'; // Le fameux
+	json[i] = '\0';
     TLex *lexData = initLexData(json);
-	int res = analyseurLR(lexData); // Traitement principal
-
+    
+	int res = analyseurLR(lexData);
+   
 	free(json);
-	printf("Résultat : %d\n", res);
-
+    printf("Résultat : %d\n", res);
+    
+    fclose(file);
+    //erreur incompréhensible de segmentation fault
+    deleteLexData(&lexData);
 	return 0;
 }

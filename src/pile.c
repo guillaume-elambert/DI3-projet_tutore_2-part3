@@ -42,11 +42,12 @@ TIntPile *initIntPile()
  * \param[in/out] _pile : l'adresse du pointeur sur la pile
  * \return neant
  */
-void deleteIntPile(TIntPile **_pile)
-{
-	(*_pile)->data = NULL;
+void deleteIntPile(TIntPile ** _pile) {
+	free((*_pile)->data);
 	free(*_pile);
+	*_pile = NULL;
 }
+
 
 /**
  * \fn void printIntPile(TIntPile * _pile)

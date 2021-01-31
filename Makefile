@@ -13,10 +13,10 @@ $(APPNAME): $(OBJ)
 %.o:
 # On ajoute l'option "-D TEST" si le fichier est pile.c et quon souhaite tester
 	@ if [ $(TEST) ] && [ "$(@:$(OBJDIR)%.o=$(SRCDIR)%.c)" = "$(SRCDIR)/$(FILEWITHTEST)" ]; then	\
-		$(CC) -o $@ -c $(@:$(OBJDIR)%.o=$(SRCDIR)%.c) $(CFLAGS); 									\
+		$(CC) $(FLAGS) -o $@ -c $(@:$(OBJDIR)%.o=$(SRCDIR)%.c) $(CFLAGS); 									\
 		echo $(CC) -o $@ -c $(@:$(OBJDIR)%.o=$(SRCDIR)%.c) $(CFLAGS); 								\
 	else 																							\
-		$(CC) -o $@ -c $(@:$(OBJDIR)%.o=$(SRCDIR)%.c); 												\
+		$(CC) $(FLAGS) -o $@ -c $(@:$(OBJDIR)%.o=$(SRCDIR)%.c); 												\
 		echo $(CC) -o $@ -c $(@:$(OBJDIR)%.o=$(SRCDIR)%.c); 										\
 	fi
 
@@ -38,9 +38,9 @@ clean:
 
 valgrind: $(APPNAME)
 ifdef FILE
-	@ valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(RUN_CMD) "$(FILE)"
+	@ valgrind --trace-children=yes --track-fds=yes --track-origins=yes --leak-check=full --show-leak-kinds=all ./$(RUN_CMD) "$(FILE)"
 else
-	@ valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(RUN_CMD)
+	@ valgrind --trace-children=yes --track-fds=yes --track-origins=yes --leak-check=full --show-leak-kinds=all ./$(RUN_CMD)
 endif 
 	
 

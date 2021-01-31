@@ -1,0 +1,314 @@
+\hypertarget{tp2__lex_8h}{}\section{include/tp2\+\_\+lex.h File Reference}
+\label{tp2__lex_8h}\index{include/tp2\+\_\+lex.\+h@{include/tp2\+\_\+lex.\+h}}
+
+
+analyseur lexical pour le langage J\+S\+ON  
+
+
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=170pt]{tp2__lex_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+union \hyperlink{structTSymbole}{T\+Symbole}
+\begin{DoxyCompactList}\small\item\em union permettant de manipuler un entier/reel/chaine pour la table des symboles \end{DoxyCompactList}\item 
+struct \hyperlink{structTLex}{T\+Lex}
+\begin{DoxyCompactList}\small\item\em structure contenant tous les parametres/donnees pour l\textquotesingle{}analyse lexicale \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{tp2__lex_8h_a1c1d6b9a4119ed60f57af0732bbc7ac4}{J\+S\+O\+N\+\_\+\+L\+E\+X\+\_\+\+E\+R\+R\+OR}~-\/1
+\item 
+\#define \hyperlink{tp2__lex_8h_a172a7e23fb0ac9f8ce19bee485090de7}{J\+S\+O\+N\+\_\+\+T\+R\+UE}~1
+\item 
+\#define \hyperlink{tp2__lex_8h_a8944b24b93d4a397aa5748a5f6048d5b}{J\+S\+O\+N\+\_\+\+F\+A\+L\+SE}~2
+\item 
+\#define \hyperlink{tp2__lex_8h_a47153ed2f7bd07cabffd495e4a18839f}{J\+S\+O\+N\+\_\+\+N\+U\+LL}~3
+\item 
+\#define \hyperlink{tp2__lex_8h_a3b936ae16a984c94b371ed1e8bc74465}{J\+S\+O\+N\+\_\+\+L\+CB}~4
+\item 
+\#define \hyperlink{tp2__lex_8h_a8505d4213a71673ca62aa1e799e4333c}{J\+S\+O\+N\+\_\+\+R\+CB}~5
+\item 
+\#define \hyperlink{tp2__lex_8h_afc6172b33cb8b8fc84d963789eaf6a09}{J\+S\+O\+N\+\_\+\+LB}~6
+\item 
+\#define \hyperlink{tp2__lex_8h_ab08abc8e5d15d3b8c0be234acc188c21}{J\+S\+O\+N\+\_\+\+RB}~7
+\item 
+\#define \hyperlink{tp2__lex_8h_a397f200787ea6874ad6ab9e489f6f3a5}{J\+S\+O\+N\+\_\+\+C\+O\+M\+MA}~8
+\item 
+\#define \hyperlink{tp2__lex_8h_a6ba5aa52b05c03ce1b467e69dac56732}{J\+S\+O\+N\+\_\+\+C\+O\+L\+ON}~9
+\item 
+\#define \hyperlink{tp2__lex_8h_adea584ac98210649e2edf68941091356}{J\+S\+O\+N\+\_\+\+S\+T\+R\+I\+NG}~10
+\item 
+\#define \hyperlink{tp2__lex_8h_a85e4eb9195094b4e49d1f61755305bf7}{J\+S\+O\+N\+\_\+\+I\+N\+T\+\_\+\+N\+U\+M\+B\+ER}~11
+\item 
+\#define \hyperlink{tp2__lex_8h_a48c8d34a4f14411618cd63b06b0e822d}{J\+S\+O\+N\+\_\+\+R\+E\+A\+L\+\_\+\+N\+U\+M\+B\+ER}~12
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{tp2__lex_8h_a9869519009e3b965c6401e67261f6c43}{is\+Sep} (const char \+\_\+symb)
+\begin{DoxyCompactList}\small\item\em fonction qui teste si un symbole fait partie des separateurs \end{DoxyCompactList}\item 
+\hyperlink{structTLex}{T\+Lex} $\ast$ \hyperlink{tp2__lex_8h_a4a617721154587a6ea133054e7d3c55c}{init\+Lex\+Data} (char $\ast$\+\_\+data)
+\begin{DoxyCompactList}\small\item\em fonction qui reserve la memoire et initialise les donnees pour l\textquotesingle{}analyseur lexical \end{DoxyCompactList}\item 
+void \hyperlink{tp2__lex_8h_a66ac3a0b39b824a8e72654633945a95f}{delete\+Lex\+Data} (\hyperlink{structTLex}{T\+Lex} $\ast$$\ast$\+\_\+lex\+Data)
+\begin{DoxyCompactList}\small\item\em fonction qui supprime de la memoire les donnees pour l\textquotesingle{}analyseur lexical \end{DoxyCompactList}\item 
+void \hyperlink{tp2__lex_8h_a5cad73df0d00e5735e16356504a923b1}{print\+Lex\+Data} (\hyperlink{structTLex}{T\+Lex} $\ast$\+\_\+lex\+Data)
+\begin{DoxyCompactList}\small\item\em fonction qui affiche les donnees pour l\textquotesingle{}analyseur lexical \end{DoxyCompactList}\item 
+int \hyperlink{tp2__lex_8h_afed09d4c5ae5433e332256c311411bb6}{change\+Table\+Symbole\+Size} (\hyperlink{structTLex}{T\+Lex} $\ast$\+\_\+lex\+Data)
+\begin{DoxyCompactList}\small\item\em Fonction qui incrémente le nombre de symbole de la table des symbole et augmente sa taille. \end{DoxyCompactList}\item 
+void \hyperlink{tp2__lex_8h_a769d490ddf9b2cae334051946a61573b}{add\+Int\+Symbol\+To\+Lex\+Data} (\hyperlink{structTLex}{T\+Lex} $\ast$\+\_\+lex\+Data, const int \+\_\+val)
+\begin{DoxyCompactList}\small\item\em fonction qui ajoute un symbole entier a la table des symboles \end{DoxyCompactList}\item 
+void \hyperlink{tp2__lex_8h_a42504307caaa42184de9dd79b180b946}{add\+Real\+Symbol\+To\+Lex\+Data} (\hyperlink{structTLex}{T\+Lex} $\ast$\+\_\+lex\+Data, const float \+\_\+val)
+\begin{DoxyCompactList}\small\item\em fonction qui ajoute un symbole reel a la table des symboles \end{DoxyCompactList}\item 
+void \hyperlink{tp2__lex_8h_acc16ce9abf0d176fbe754943171f5c4e}{add\+String\+Symbol\+To\+Lex\+Data} (\hyperlink{structTLex}{T\+Lex} $\ast$\+\_\+lex\+Data, char $\ast$\+\_\+val)
+\begin{DoxyCompactList}\small\item\em fonction qui ajoute une chaine de caracteres a la table des symboles \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{tp2__lex_8h_a4f39d3deacca77d7b4cf543101da84a6}\label{tp2__lex_8h_a4f39d3deacca77d7b4cf543101da84a6}} 
+int {\bfseries lex} (\hyperlink{structTLex}{T\+Lex} $\ast$\+\_\+lex\+Data)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+analyseur lexical pour le langage J\+S\+ON 
+
+\begin{DoxyAuthor}{Author}
+NM 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+25/11/2015 
+\end{DoxyDate}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{tp2__lex_8h_a6ba5aa52b05c03ce1b467e69dac56732}\label{tp2__lex_8h_a6ba5aa52b05c03ce1b467e69dac56732}} 
+\index{tp2\+\_\+lex.\+h@{tp2\+\_\+lex.\+h}!J\+S\+O\+N\+\_\+\+C\+O\+L\+ON@{J\+S\+O\+N\+\_\+\+C\+O\+L\+ON}}
+\index{J\+S\+O\+N\+\_\+\+C\+O\+L\+ON@{J\+S\+O\+N\+\_\+\+C\+O\+L\+ON}!tp2\+\_\+lex.\+h@{tp2\+\_\+lex.\+h}}
+\subsubsection{\texorpdfstring{J\+S\+O\+N\+\_\+\+C\+O\+L\+ON}{JSON\_COLON}}
+{\footnotesize\ttfamily \#define J\+S\+O\+N\+\_\+\+C\+O\+L\+ON~9}
+
+entite lexicale \+: \mbox{\Hypertarget{tp2__lex_8h_a397f200787ea6874ad6ab9e489f6f3a5}\label{tp2__lex_8h_a397f200787ea6874ad6ab9e489f6f3a5}} 
+\index{tp2\+\_\+lex.\+h@{tp2\+\_\+lex.\+h}!J\+S\+O\+N\+\_\+\+C\+O\+M\+MA@{J\+S\+O\+N\+\_\+\+C\+O\+M\+MA}}
+\index{J\+S\+O\+N\+\_\+\+C\+O\+M\+MA@{J\+S\+O\+N\+\_\+\+C\+O\+M\+MA}!tp2\+\_\+lex.\+h@{tp2\+\_\+lex.\+h}}
+\subsubsection{\texorpdfstring{J\+S\+O\+N\+\_\+\+C\+O\+M\+MA}{JSON\_COMMA}}
+{\footnotesize\ttfamily \#define J\+S\+O\+N\+\_\+\+C\+O\+M\+MA~8}
+
+entite lexicale , \mbox{\Hypertarget{tp2__lex_8h_a8944b24b93d4a397aa5748a5f6048d5b}\label{tp2__lex_8h_a8944b24b93d4a397aa5748a5f6048d5b}} 
+\index{tp2\+\_\+lex.\+h@{tp2\+\_\+lex.\+h}!J\+S\+O\+N\+\_\+\+F\+A\+L\+SE@{J\+S\+O\+N\+\_\+\+F\+A\+L\+SE}}
+\index{J\+S\+O\+N\+\_\+\+F\+A\+L\+SE@{J\+S\+O\+N\+\_\+\+F\+A\+L\+SE}!tp2\+\_\+lex.\+h@{tp2\+\_\+lex.\+h}}
+\subsubsection{\texorpdfstring{J\+S\+O\+N\+\_\+\+F\+A\+L\+SE}{JSON\_FALSE}}
+{\footnotesize\ttfamily \#define J\+S\+O\+N\+\_\+\+F\+A\+L\+SE~2}
+
+entite lexicale false \mbox{\Hypertarget{tp2__lex_8h_a85e4eb9195094b4e49d1f61755305bf7}\label{tp2__lex_8h_a85e4eb9195094b4e49d1f61755305bf7}} 
+\index{tp2\+\_\+lex.\+h@{tp2\+\_\+lex.\+h}!J\+S\+O\+N\+\_\+\+I\+N\+T\+\_\+\+N\+U\+M\+B\+ER@{J\+S\+O\+N\+\_\+\+I\+N\+T\+\_\+\+N\+U\+M\+B\+ER}}
+\index{J\+S\+O\+N\+\_\+\+I\+N\+T\+\_\+\+N\+U\+M\+B\+ER@{J\+S\+O\+N\+\_\+\+I\+N\+T\+\_\+\+N\+U\+M\+B\+ER}!tp2\+\_\+lex.\+h@{tp2\+\_\+lex.\+h}}
+\subsubsection{\texorpdfstring{J\+S\+O\+N\+\_\+\+I\+N\+T\+\_\+\+N\+U\+M\+B\+ER}{JSON\_INT\_NUMBER}}
+{\footnotesize\ttfamily \#define J\+S\+O\+N\+\_\+\+I\+N\+T\+\_\+\+N\+U\+M\+B\+ER~11}
+
+entite lexicale nombre entier \mbox{\Hypertarget{tp2__lex_8h_afc6172b33cb8b8fc84d963789eaf6a09}\label{tp2__lex_8h_afc6172b33cb8b8fc84d963789eaf6a09}} 
+\index{tp2\+\_\+lex.\+h@{tp2\+\_\+lex.\+h}!J\+S\+O\+N\+\_\+\+LB@{J\+S\+O\+N\+\_\+\+LB}}
+\index{J\+S\+O\+N\+\_\+\+LB@{J\+S\+O\+N\+\_\+\+LB}!tp2\+\_\+lex.\+h@{tp2\+\_\+lex.\+h}}
+\subsubsection{\texorpdfstring{J\+S\+O\+N\+\_\+\+LB}{JSON\_LB}}
+{\footnotesize\ttfamily \#define J\+S\+O\+N\+\_\+\+LB~6}
+
+entite lexicale \mbox{[} \mbox{\Hypertarget{tp2__lex_8h_a3b936ae16a984c94b371ed1e8bc74465}\label{tp2__lex_8h_a3b936ae16a984c94b371ed1e8bc74465}} 
+\index{tp2\+\_\+lex.\+h@{tp2\+\_\+lex.\+h}!J\+S\+O\+N\+\_\+\+L\+CB@{J\+S\+O\+N\+\_\+\+L\+CB}}
+\index{J\+S\+O\+N\+\_\+\+L\+CB@{J\+S\+O\+N\+\_\+\+L\+CB}!tp2\+\_\+lex.\+h@{tp2\+\_\+lex.\+h}}
+\subsubsection{\texorpdfstring{J\+S\+O\+N\+\_\+\+L\+CB}{JSON\_LCB}}
+{\footnotesize\ttfamily \#define J\+S\+O\+N\+\_\+\+L\+CB~4}
+
+entite lexicale \{ \mbox{\Hypertarget{tp2__lex_8h_a1c1d6b9a4119ed60f57af0732bbc7ac4}\label{tp2__lex_8h_a1c1d6b9a4119ed60f57af0732bbc7ac4}} 
+\index{tp2\+\_\+lex.\+h@{tp2\+\_\+lex.\+h}!J\+S\+O\+N\+\_\+\+L\+E\+X\+\_\+\+E\+R\+R\+OR@{J\+S\+O\+N\+\_\+\+L\+E\+X\+\_\+\+E\+R\+R\+OR}}
+\index{J\+S\+O\+N\+\_\+\+L\+E\+X\+\_\+\+E\+R\+R\+OR@{J\+S\+O\+N\+\_\+\+L\+E\+X\+\_\+\+E\+R\+R\+OR}!tp2\+\_\+lex.\+h@{tp2\+\_\+lex.\+h}}
+\subsubsection{\texorpdfstring{J\+S\+O\+N\+\_\+\+L\+E\+X\+\_\+\+E\+R\+R\+OR}{JSON\_LEX\_ERROR}}
+{\footnotesize\ttfamily \#define J\+S\+O\+N\+\_\+\+L\+E\+X\+\_\+\+E\+R\+R\+OR~-\/1}
+
+code d\textquotesingle{}erreur lexicale \mbox{\Hypertarget{tp2__lex_8h_a47153ed2f7bd07cabffd495e4a18839f}\label{tp2__lex_8h_a47153ed2f7bd07cabffd495e4a18839f}} 
+\index{tp2\+\_\+lex.\+h@{tp2\+\_\+lex.\+h}!J\+S\+O\+N\+\_\+\+N\+U\+LL@{J\+S\+O\+N\+\_\+\+N\+U\+LL}}
+\index{J\+S\+O\+N\+\_\+\+N\+U\+LL@{J\+S\+O\+N\+\_\+\+N\+U\+LL}!tp2\+\_\+lex.\+h@{tp2\+\_\+lex.\+h}}
+\subsubsection{\texorpdfstring{J\+S\+O\+N\+\_\+\+N\+U\+LL}{JSON\_NULL}}
+{\footnotesize\ttfamily \#define J\+S\+O\+N\+\_\+\+N\+U\+LL~3}
+
+entite lexicale null \mbox{\Hypertarget{tp2__lex_8h_ab08abc8e5d15d3b8c0be234acc188c21}\label{tp2__lex_8h_ab08abc8e5d15d3b8c0be234acc188c21}} 
+\index{tp2\+\_\+lex.\+h@{tp2\+\_\+lex.\+h}!J\+S\+O\+N\+\_\+\+RB@{J\+S\+O\+N\+\_\+\+RB}}
+\index{J\+S\+O\+N\+\_\+\+RB@{J\+S\+O\+N\+\_\+\+RB}!tp2\+\_\+lex.\+h@{tp2\+\_\+lex.\+h}}
+\subsubsection{\texorpdfstring{J\+S\+O\+N\+\_\+\+RB}{JSON\_RB}}
+{\footnotesize\ttfamily \#define J\+S\+O\+N\+\_\+\+RB~7}
+
+entite lexicale \mbox{]} \mbox{\Hypertarget{tp2__lex_8h_a8505d4213a71673ca62aa1e799e4333c}\label{tp2__lex_8h_a8505d4213a71673ca62aa1e799e4333c}} 
+\index{tp2\+\_\+lex.\+h@{tp2\+\_\+lex.\+h}!J\+S\+O\+N\+\_\+\+R\+CB@{J\+S\+O\+N\+\_\+\+R\+CB}}
+\index{J\+S\+O\+N\+\_\+\+R\+CB@{J\+S\+O\+N\+\_\+\+R\+CB}!tp2\+\_\+lex.\+h@{tp2\+\_\+lex.\+h}}
+\subsubsection{\texorpdfstring{J\+S\+O\+N\+\_\+\+R\+CB}{JSON\_RCB}}
+{\footnotesize\ttfamily \#define J\+S\+O\+N\+\_\+\+R\+CB~5}
+
+entite lexicale \} \mbox{\Hypertarget{tp2__lex_8h_a48c8d34a4f14411618cd63b06b0e822d}\label{tp2__lex_8h_a48c8d34a4f14411618cd63b06b0e822d}} 
+\index{tp2\+\_\+lex.\+h@{tp2\+\_\+lex.\+h}!J\+S\+O\+N\+\_\+\+R\+E\+A\+L\+\_\+\+N\+U\+M\+B\+ER@{J\+S\+O\+N\+\_\+\+R\+E\+A\+L\+\_\+\+N\+U\+M\+B\+ER}}
+\index{J\+S\+O\+N\+\_\+\+R\+E\+A\+L\+\_\+\+N\+U\+M\+B\+ER@{J\+S\+O\+N\+\_\+\+R\+E\+A\+L\+\_\+\+N\+U\+M\+B\+ER}!tp2\+\_\+lex.\+h@{tp2\+\_\+lex.\+h}}
+\subsubsection{\texorpdfstring{J\+S\+O\+N\+\_\+\+R\+E\+A\+L\+\_\+\+N\+U\+M\+B\+ER}{JSON\_REAL\_NUMBER}}
+{\footnotesize\ttfamily \#define J\+S\+O\+N\+\_\+\+R\+E\+A\+L\+\_\+\+N\+U\+M\+B\+ER~12}
+
+entite lexicale nombre reel \mbox{\Hypertarget{tp2__lex_8h_adea584ac98210649e2edf68941091356}\label{tp2__lex_8h_adea584ac98210649e2edf68941091356}} 
+\index{tp2\+\_\+lex.\+h@{tp2\+\_\+lex.\+h}!J\+S\+O\+N\+\_\+\+S\+T\+R\+I\+NG@{J\+S\+O\+N\+\_\+\+S\+T\+R\+I\+NG}}
+\index{J\+S\+O\+N\+\_\+\+S\+T\+R\+I\+NG@{J\+S\+O\+N\+\_\+\+S\+T\+R\+I\+NG}!tp2\+\_\+lex.\+h@{tp2\+\_\+lex.\+h}}
+\subsubsection{\texorpdfstring{J\+S\+O\+N\+\_\+\+S\+T\+R\+I\+NG}{JSON\_STRING}}
+{\footnotesize\ttfamily \#define J\+S\+O\+N\+\_\+\+S\+T\+R\+I\+NG~10}
+
+entite lexicale chaine de caracteres \mbox{\Hypertarget{tp2__lex_8h_a172a7e23fb0ac9f8ce19bee485090de7}\label{tp2__lex_8h_a172a7e23fb0ac9f8ce19bee485090de7}} 
+\index{tp2\+\_\+lex.\+h@{tp2\+\_\+lex.\+h}!J\+S\+O\+N\+\_\+\+T\+R\+UE@{J\+S\+O\+N\+\_\+\+T\+R\+UE}}
+\index{J\+S\+O\+N\+\_\+\+T\+R\+UE@{J\+S\+O\+N\+\_\+\+T\+R\+UE}!tp2\+\_\+lex.\+h@{tp2\+\_\+lex.\+h}}
+\subsubsection{\texorpdfstring{J\+S\+O\+N\+\_\+\+T\+R\+UE}{JSON\_TRUE}}
+{\footnotesize\ttfamily \#define J\+S\+O\+N\+\_\+\+T\+R\+UE~1}
+
+entite lexicale true 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{tp2__lex_8h_a769d490ddf9b2cae334051946a61573b}\label{tp2__lex_8h_a769d490ddf9b2cae334051946a61573b}} 
+\index{tp2\+\_\+lex.\+h@{tp2\+\_\+lex.\+h}!add\+Int\+Symbol\+To\+Lex\+Data@{add\+Int\+Symbol\+To\+Lex\+Data}}
+\index{add\+Int\+Symbol\+To\+Lex\+Data@{add\+Int\+Symbol\+To\+Lex\+Data}!tp2\+\_\+lex.\+h@{tp2\+\_\+lex.\+h}}
+\subsubsection{\texorpdfstring{add\+Int\+Symbol\+To\+Lex\+Data()}{addIntSymbolToLexData()}}
+{\footnotesize\ttfamily void add\+Int\+Symbol\+To\+Lex\+Data (\begin{DoxyParamCaption}\item[{\hyperlink{structTLex}{T\+Lex} $\ast$}]{\+\_\+lex\+Data,  }\item[{const int}]{\+\_\+val }\end{DoxyParamCaption})}
+
+
+
+fonction qui ajoute un symbole entier a la table des symboles 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em \+\_\+lex\+Data} & donnees de l\textquotesingle{}analyseur lexical \\
+\hline
+\mbox{\tt in}  & {\em \+\_\+val} & valeur entiere e ajouter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+neant 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tp2__lex_8h_a42504307caaa42184de9dd79b180b946}\label{tp2__lex_8h_a42504307caaa42184de9dd79b180b946}} 
+\index{tp2\+\_\+lex.\+h@{tp2\+\_\+lex.\+h}!add\+Real\+Symbol\+To\+Lex\+Data@{add\+Real\+Symbol\+To\+Lex\+Data}}
+\index{add\+Real\+Symbol\+To\+Lex\+Data@{add\+Real\+Symbol\+To\+Lex\+Data}!tp2\+\_\+lex.\+h@{tp2\+\_\+lex.\+h}}
+\subsubsection{\texorpdfstring{add\+Real\+Symbol\+To\+Lex\+Data()}{addRealSymbolToLexData()}}
+{\footnotesize\ttfamily void add\+Real\+Symbol\+To\+Lex\+Data (\begin{DoxyParamCaption}\item[{\hyperlink{structTLex}{T\+Lex} $\ast$}]{\+\_\+lex\+Data,  }\item[{const float}]{\+\_\+val }\end{DoxyParamCaption})}
+
+
+
+fonction qui ajoute un symbole reel a la table des symboles 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em \+\_\+lex\+Data} & donnees de l\textquotesingle{}analyseur lexical \\
+\hline
+\mbox{\tt in}  & {\em \+\_\+val} & valeur reelle a ajouter \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{tp2__lex_8h_acc16ce9abf0d176fbe754943171f5c4e}\label{tp2__lex_8h_acc16ce9abf0d176fbe754943171f5c4e}} 
+\index{tp2\+\_\+lex.\+h@{tp2\+\_\+lex.\+h}!add\+String\+Symbol\+To\+Lex\+Data@{add\+String\+Symbol\+To\+Lex\+Data}}
+\index{add\+String\+Symbol\+To\+Lex\+Data@{add\+String\+Symbol\+To\+Lex\+Data}!tp2\+\_\+lex.\+h@{tp2\+\_\+lex.\+h}}
+\subsubsection{\texorpdfstring{add\+String\+Symbol\+To\+Lex\+Data()}{addStringSymbolToLexData()}}
+{\footnotesize\ttfamily void add\+String\+Symbol\+To\+Lex\+Data (\begin{DoxyParamCaption}\item[{\hyperlink{structTLex}{T\+Lex} $\ast$}]{\+\_\+lex\+Data,  }\item[{char $\ast$}]{\+\_\+val }\end{DoxyParamCaption})}
+
+
+
+fonction qui ajoute une chaine de caracteres a la table des symboles 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em \+\_\+lex\+Data} & donnees de l\textquotesingle{}analyseur lexical \\
+\hline
+\mbox{\tt in}  & {\em \+\_\+val} & chaine a ajouter \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{tp2__lex_8h_afed09d4c5ae5433e332256c311411bb6}\label{tp2__lex_8h_afed09d4c5ae5433e332256c311411bb6}} 
+\index{tp2\+\_\+lex.\+h@{tp2\+\_\+lex.\+h}!change\+Table\+Symbole\+Size@{change\+Table\+Symbole\+Size}}
+\index{change\+Table\+Symbole\+Size@{change\+Table\+Symbole\+Size}!tp2\+\_\+lex.\+h@{tp2\+\_\+lex.\+h}}
+\subsubsection{\texorpdfstring{change\+Table\+Symbole\+Size()}{changeTableSymboleSize()}}
+{\footnotesize\ttfamily int change\+Table\+Symbole\+Size (\begin{DoxyParamCaption}\item[{\hyperlink{structTLex}{T\+Lex} $\ast$}]{\+\_\+lex\+Data }\end{DoxyParamCaption})}
+
+
+
+Fonction qui incrémente le nombre de symbole de la table des symbole et augmente sa taille. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em \+\_\+lex\+Data} & donnees de l\textquotesingle{}analyseur lexical \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+reallocation reussie 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tp2__lex_8h_a66ac3a0b39b824a8e72654633945a95f}\label{tp2__lex_8h_a66ac3a0b39b824a8e72654633945a95f}} 
+\index{tp2\+\_\+lex.\+h@{tp2\+\_\+lex.\+h}!delete\+Lex\+Data@{delete\+Lex\+Data}}
+\index{delete\+Lex\+Data@{delete\+Lex\+Data}!tp2\+\_\+lex.\+h@{tp2\+\_\+lex.\+h}}
+\subsubsection{\texorpdfstring{delete\+Lex\+Data()}{deleteLexData()}}
+{\footnotesize\ttfamily void delete\+Lex\+Data (\begin{DoxyParamCaption}\item[{\hyperlink{structTLex}{T\+Lex} $\ast$$\ast$}]{\+\_\+lex\+Data }\end{DoxyParamCaption})}
+
+
+
+fonction qui supprime de la memoire les donnees pour l\textquotesingle{}analyseur lexical 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em \+\_\+lex\+Data} & donnees de l\textquotesingle{}analyseur lexical \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+neant 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tp2__lex_8h_a4a617721154587a6ea133054e7d3c55c}\label{tp2__lex_8h_a4a617721154587a6ea133054e7d3c55c}} 
+\index{tp2\+\_\+lex.\+h@{tp2\+\_\+lex.\+h}!init\+Lex\+Data@{init\+Lex\+Data}}
+\index{init\+Lex\+Data@{init\+Lex\+Data}!tp2\+\_\+lex.\+h@{tp2\+\_\+lex.\+h}}
+\subsubsection{\texorpdfstring{init\+Lex\+Data()}{initLexData()}}
+{\footnotesize\ttfamily \hyperlink{structTLex}{T\+Lex}$\ast$ init\+Lex\+Data (\begin{DoxyParamCaption}\item[{char $\ast$}]{\+\_\+data }\end{DoxyParamCaption})}
+
+
+
+fonction qui reserve la memoire et initialise les donnees pour l\textquotesingle{}analyseur lexical 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em \+\_\+data} & chaine a analyser \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointeur sur la structure de donnees creee 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tp2__lex_8h_a9869519009e3b965c6401e67261f6c43}\label{tp2__lex_8h_a9869519009e3b965c6401e67261f6c43}} 
+\index{tp2\+\_\+lex.\+h@{tp2\+\_\+lex.\+h}!is\+Sep@{is\+Sep}}
+\index{is\+Sep@{is\+Sep}!tp2\+\_\+lex.\+h@{tp2\+\_\+lex.\+h}}
+\subsubsection{\texorpdfstring{is\+Sep()}{isSep()}}
+{\footnotesize\ttfamily int is\+Sep (\begin{DoxyParamCaption}\item[{const char}]{\+\_\+symb }\end{DoxyParamCaption})}
+
+
+
+fonction qui teste si un symbole fait partie des separateurs 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em \+\_\+symb} & symbole a analyser \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 (vrai) si \+\_\+symb est un separateur, 0 (faux) sinon 
+\end{DoxyReturn}
+\mbox{\Hypertarget{tp2__lex_8h_a5cad73df0d00e5735e16356504a923b1}\label{tp2__lex_8h_a5cad73df0d00e5735e16356504a923b1}} 
+\index{tp2\+\_\+lex.\+h@{tp2\+\_\+lex.\+h}!print\+Lex\+Data@{print\+Lex\+Data}}
+\index{print\+Lex\+Data@{print\+Lex\+Data}!tp2\+\_\+lex.\+h@{tp2\+\_\+lex.\+h}}
+\subsubsection{\texorpdfstring{print\+Lex\+Data()}{printLexData()}}
+{\footnotesize\ttfamily void print\+Lex\+Data (\begin{DoxyParamCaption}\item[{\hyperlink{structTLex}{T\+Lex} $\ast$}]{\+\_\+lex\+Data }\end{DoxyParamCaption})}
+
+
+
+fonction qui affiche les donnees pour l\textquotesingle{}analyseur lexical 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em \+\_\+lex\+Data} & données de l\textquotesingle{}analyseur lexical \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+neant 
+\end{DoxyReturn}
